@@ -30,7 +30,7 @@ const Avatar = ({ profile, onAvatarUpdate }: Props) => {
   const maxNumber = 1;
   const { t } = useTranslation();
   // Lấy thông tin user đang đăng nhập từ Redux
-  const { user } = useAppSelector((state: any) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
   /**
@@ -255,7 +255,7 @@ const Avatar = ({ profile, onAvatarUpdate }: Props) => {
               {loading
                 ? t("Uploading")
                 : imageList.length === 0
-                  ? t("profile.uploadAvatar") || "Thay Đổi Ảnh Đại Diện"
+                  ? t("profile.changeAvatar") || "Thay Đổi Ảnh Đại Diện"
                   : t("profile.changeAvatar") || "Thay Đổi Ảnh Đại Diện"}
             </Button>
           </Box>

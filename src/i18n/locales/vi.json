@@ -1,0 +1,91 @@
+{
+  "login": {
+    "signIn": "Đăng Nhập",
+    "signUp": "Đăng Ký",
+    "createAccount": "Tạo Tài Khoản",
+    "welcomeBack": "Chào Mừng Trở Lại!",
+    "heyThere": "Xin Chào!",
+    "signInMessage": "Đăng nhập để xem lợi nhuận đầu tư mới nhất của bạn.",
+    "signUpMessage": "Bắt đầu hành trình của bạn với phần mềm này và kiếm tiền ngay bây giờ.",
+    "orUseEmail": "Hoặc sử dụng tên đăng nhập của bạn",
+    "fullName": "Họ và tên",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "loginError": "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin.",
+    "registerError": "Đăng ký thất bại. Vui lòng thử lại.",
+    "title": "Đăng Nhập",
+    "requiredFields": "Vui lòng điền đầy đủ thông tin."
+  },
+  "navbar": {
+    "search": "Tìm kiếm sản phẩm...",
+    "Vi": "Tiếng Việt",
+    "EN": "Tiếng Anh",
+    "logout": "Đăng Xuất",
+    "changePass": "Đổi Mật Khẩu",
+    "hello": "Xin chào",
+    "profile": "Thông tin cá nhân"
+  },
+  "homepage": {
+    "title": "Sản Phẩm"
+  },
+  "toast": {
+    "registerError": "Đăng ký thất bại. Vui lòng thử lại.",
+    "registerSuccess": "Đăng ký thành công. Vui lòng đăng nhập.",
+    "loginError": "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin.",
+    "logoutSuccess": "Đăng xuất thành công.",
+    "loginSuccess": "Đăng nhập thành công.",
+    "profileUpdateSuccess": "Cập nhật thông tin cá nhân thành công.",
+    "profileUpdateError": "Cập nhật thông tin cá nhân thất bại.",
+    "avatarUpdateSuccess": "Cập nhật ảnh đại diện thành công.",
+    "avatarUpdateError": "Cập nhật ảnh đại diện thất bại."
+  },
+  "button": {
+    "save": "Lưu",
+    "cancel": "Huỷ",
+    "edit": "Chỉnh Sửa",
+    "delete": "Xoá",
+    "add": "Thêm"
+  },
+  "profile": {
+    "title": "Thông tin Cá Nhân",
+    "avatar": "Ảnh Đại Diện",
+    "name": "Họ Tên",
+    "email": "Email",
+    "phone": "Số Điện Thoại",
+    "address": "Địa Chỉ",
+    "company": "Công Ty",
+    "dob": "Ngày Sinh",
+    "errorUserNotFound": "Không tìm thấy thông tin người dùng.",
+    "errorLoadingProfile": "Không thể tải thông tin profile.",
+    "changeAvatar": "Thay Đổi Ảnh Đại Diện"
+  },
+  "changePassword": {
+    "oldPassword": "Mật Khẩu Cũ",
+    "newPassword": "Mật Khẩu Mới",
+    "confirmPassword": "Xác Nhận Mật Khẩu Mới"
+  },
+  "sidebar": {
+    "products": "Sản Phẩm",
+    "clothes": "Quần Áo",
+    "accessories": "Phụ Kiện",
+    "shoes": "Giày Dép"
+  },
+  "error": {
+    "updateName1": "Họ tên không được để trống",
+    "updateName2": "Họ tên phải có ít nhất 2 ký tự",
+    "updateName3": "Họ tên không được vượt quá 50 ký tự",
+    "updateName4": "Họ tên chỉ được chứa chữ cái và khoảng trắng",
+    "updateEmail1": "Email không được để trống",
+    "updateEmail2": "Email không được vượt quá 100 ký tự",
+    "updateEmail3": "Email không đúng định dạng (ví dụ: example@gmail.com)",
+    "updatePhone1": "Số điện thoại không hợp lệ (ví dụ: 0987654321)",
+    "updateCompany1": "Tên công ty phải có ít nhất 2 ký tự",
+    "updateCompany2": "Tên công ty không được vượt quá 100 ký tự",
+    "updateDOB1": "Ngày sinh không hợp lệ",
+    "updateDOB2": "Năm sinh phải từ 1900 đến ",
+    "updateDOB3": "Tháng sinh không hợp lệ (1-12)",
+    "updateDOB4": "Ngày sinh không thể ở tương lai"
+  },
+  "Uploading": "Đang tải lên..."
+}

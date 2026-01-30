@@ -1,0 +1,91 @@
+{
+  "login": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "createAccount": "Create Account",
+    "welcomeBack": "Welcome Back!",
+    "heyThere": "Hey There!",
+    "signInMessage": "Sign in to review your latest profit from investments.",
+    "signUpMessage": "Begin your journey using this software, and start earning now.",
+    "orUseEmail": "Or use your email address",
+    "fullName": "Full name",
+    "email": "Email address",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "loginError": "Login failed. Please check your credentials.",
+    "registerError": "Registration failed. Please try again.",
+    "title": "Login",
+    "requiredFields": "Please fill in all required fields."
+  },
+  "navbar": {
+    "search": "Search ...",
+    "Vi": "Vietnamese",
+    "EN": "English",
+    "logout": "Logout",
+    "changePass": "Change Password",
+    "hello": "Hello",
+    "profile": "Profile"
+  },
+  "homepage": {
+    "title": "Products"
+  },
+  "toast": {
+    "registerError": "Registration failed. Please try again.",
+    "registerSuccess": "Registration successful. Please log in.",
+    "loginError": "Login failed. Please check your credentials.",
+    "logoutSuccess": "Logout successful.",
+    "loginSuccess": "Login successful.",
+    "profileUpdateSuccess": "Profile updated successfully.",
+    "profileUpdateError": "Profile update failed.",
+    "avatarUpdateSuccess": "Avatar updated successfully.",
+    "avatarUpdateError": "Avatar update failed."
+  },
+  "button": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add"
+  },
+  "profile": {
+    "title": "Profile",
+    "avatar": "Avatar",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "company": "Company",
+    "dob": "Date of Birth",
+    "errorUserNotFound": "User information not found.",
+    "errorLoadingProfile": "Unable to load profile information.",
+    "changeAvatar": "Change Avatar"
+  },
+  "changePassword": {
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password"
+  },
+  "sidebar": {
+    "products": "Products",
+    "clothes": "Clothes",
+    "accessories": "Accessories",
+    "shoes": "Shoes"
+  },
+  "error": {
+    "updateName1": "Name cannot be empty",
+    "updateName2": "Name must be at least 2 characters",
+    "updateName3": "Name cannot exceed 50 characters",
+    "updateName4": "Name can only contain letters and spaces",
+    "updateEmail1": "Email cannot be empty",
+    "updateEmail2": "Email cannot exceed 100 characters",
+    "updateEmail3": "Email is not in a valid format (e.g., example@gmail.com)",
+    "updatePhone1": "Phone number is not valid (e.g., 0987654321)",
+    "updateCompany1": "Company name must be at least 2 characters",
+    "updateCompany2": "Company name cannot exceed 100 characters",
+    "updateDOB1": "Date of birth is not valid",
+    "updateDOB2": "Year of birth must be from 1900 to ",
+    "updateDOB3": "Month of birth is not valid (1-12)",
+    "updateDOB4": "Date of birth cannot be in the future"
+  },
+  "Uploading": "Uploading..."
+}

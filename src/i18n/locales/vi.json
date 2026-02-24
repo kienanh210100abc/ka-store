@@ -24,7 +24,15 @@
     "logout": "Đăng Xuất",
     "changePass": "Đổi Mật Khẩu",
     "hello": "Xin chào",
-    "profile": "Thông tin cá nhân"
+    "profile": "Thông tin cá nhân",
+    "tableManagement": "Quản lý bàn",
+    "orders": "Đơn hàng",
+    "menu": "Thực đơn",
+    "dashboard": "Dashboard",
+    "dishes": "Món ăn",
+    "categories": "Danh mục",
+    "staff": "Nhân viên",
+    "settings": "Cài đặt"
   },
   "homepage": {
     "title": "Sản Phẩm"
@@ -66,10 +74,15 @@
     "confirmPassword": "Xác Nhận Mật Khẩu Mới"
   },
   "sidebar": {
-    "products": "Sản Phẩm",
-    "clothes": "Quần Áo",
-    "accessories": "Phụ Kiện",
-    "shoes": "Giày Dép"
+    "dashboard": "Dashboard",
+    "tableManagement": "Quản lý bàn",
+    "orders": "Đơn hàng",
+    "menu": "Thực đơn",
+    "dishes": "Món ăn",
+    "categories": "Danh mục",
+    "staff": "Nhân viên",
+    "settings": "Cài đặt",
+    "account": "Tài khoản"
   },
   "error": {
     "updateName1": "Họ tên không được để trống",

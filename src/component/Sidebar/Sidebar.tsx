@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { Box, Tooltip, Typography, Collapse } from "@mui/material";
 import {
-  Home,
-  Mail,
-  Settings,
   ChevronLeft,
   ExpandMore,
-  MoreHoriz,
+  Dashboard,
+  TableRestaurant,
+  ShoppingCart,
+  Restaurant,
+  People,
+  Settings,
+  AccountCircle,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../store/hooks";
 
 const ImgIcon = ({
   src,
@@ -28,48 +32,64 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
   const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>(
     {},
   );
+  const { user, isAuthenticated } = useAppSelector((state) => state.auth);
 
   useEffect(() => onToggle?.(isExpanded), [isExpanded, onToggle]);
 
   const menuItems = [
-    { text: t("sidebar.products"), icon: <Home />, path: "/" },
+    ...(user?.role === "ADMIN"
+      ? [
+          {
+            text: t("sidebar.dashboard"),
+            icon: <Dashboard />,
+            path: "/dashboard",
+          },
+        ]
+      : []),
     {
-      text: t("sidebar.shoes"),
-      // icon: <ImgIcon src={shoes} alt="shoes" />,
-      dropdown: "shoes",
+      text: t("sidebar.tableManagement"),
+      icon: <TableRestaurant />,
+      path: "/tables",
+    },
+    {
+      text: t("sidebar.orders"),
+      icon: <ShoppingCart />,
+      path: "/orders",
+    },
+    {
+      text: t("sidebar.menu"),
+      icon: <Restaurant />,
+      dropdown: "menu",
       subItems: [
         {
-          text: t("sidebar.footballshoes"),
-          path: "/shoes?sport=football",
-          // icon: <ImgIcon src={soccer} alt="football" />,
+          text: t("sidebar.dishes"),
+          path: "/dishes",
         },
         {
-          text: t("sidebar.badmintonshoes"),
-          path: "/shoes?sport=badminton",
-          // icon: <ImgIcon src={badminton} alt="badminton" />,
+          text: t("sidebar.categories"),
+          path: "/categories",
         },
       ],
     },
+    ...(user?.role === "ADMIN"
+      ? [
+          {
+            text: t("sidebar.staff"),
+            icon: <People />,
+            path: "/staff",
+          },
+        ]
+      : []),
     {
-      text: t("sidebar.clothes"),
-      // icon: <ImgIcon src={clothes} alt="clothes" />,
-      dropdown: "clothes",
-      subItems: [
-        {
-          text: t("sidebar.footballclothes"),
-          path: "/clothes?sport=football",
-          // icon: <ImgIcon src={soccer} alt="football" size={24} />,
-        },
-        {
-          text: t("sidebar.badmintonclothes"),
-          path: "/clothes?sport=badminton",
-          // icon: <ImgIcon src={badminton} alt="badminton" size={24} />,
-        },
-      ],
+      text: t("sidebar.settings"),
+      icon: <Settings />,
+      path: "/settings",
     },
-    { text: t("sidebar.accessories"), icon: <MoreHoriz />, path: "/accessory" },
-    { text: t("sidebar.contact"), icon: <Mail />, path: "/" },
-    { text: t("sidebar.about"), icon: <Settings />, path: "/" },
+    {
+      text: t("sidebar.account"),
+      icon: <AccountCircle />,
+      path: "/profile",
+    },
   ];
 
   const handleNavigate = (path: string) => {
@@ -135,13 +155,14 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
           <Typography
             sx={{
               color: "white",
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: "bold",
               opacity: 1,
               transition: "opacity 0.3s",
+              textAlign: "center",
             }}
           >
-            KA Sport
+            KA Food&Chill
           </Typography>
         )}
       </Box>

@@ -22,6 +22,7 @@ export interface User {
   company?: string;
   dob?: number;
   phoneNumber?: string;
+  role?: string;
   avatar?: string;
 }
 

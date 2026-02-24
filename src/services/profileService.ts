@@ -11,6 +11,24 @@ export interface Profile {
 }
 
 const BASE_URL = "https://693a6dea9b80ba7262c9e0fe.mockapi.io";
+
+export const fetchStaff = {
+  getAllStaff: async (): Promise<Profile[]> => {
+    const response = await fetch(`${BASE_URL}/users`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch staff");
+    }
+
+    return response.json();
+  },
+};
+
 export const profileService = {
   // GET /users/:id
   getProfile: async (id: string): Promise<Profile> => {

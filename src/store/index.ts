@@ -12,15 +12,19 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 import authReducer from "./authSlice";
+import restaurantReducer from "./restaurantSlice";
+import staffReducer from "./staffSlice";
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  restaurant: restaurantReducer,
+  staff: staffReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "restaurant", "staff"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

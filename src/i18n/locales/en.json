@@ -24,7 +24,15 @@
     "logout": "Logout",
     "changePass": "Change Password",
     "hello": "Hello",
-    "profile": "Profile"
+    "profile": "Profile",
+    "tableManagement": "Table Management",
+    "orders": "Orders",
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "dishes": "Dishes",
+    "categories": "Categories",
+    "staff": "Staff",
+    "settings": "Settings"
   },
   "homepage": {
     "title": "Products"
@@ -66,10 +74,15 @@
     "confirmPassword": "Confirm New Password"
   },
   "sidebar": {
-    "products": "Products",
-    "clothes": "Clothes",
-    "accessories": "Accessories",
-    "shoes": "Shoes"
+    "dashboard": "Dashboard",
+    "tableManagement": "Table Management",
+    "orders": "Orders",
+    "menu": "Menu",
+    "dishes": "Dishes",
+    "categories": "Categories",
+    "staff": "Staff",
+    "settings": "Settings",
+    "account": "Account"
   },
   "error": {
     "updateName1": "Name cannot be empty",

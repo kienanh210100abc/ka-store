@@ -53,7 +53,9 @@
     "cancel": "Cancel",
     "edit": "Edit",
     "delete": "Delete",
-    "add": "Add"
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm"
   },
   "profile": {
     "title": "Profile",
@@ -99,6 +101,19 @@
     "updateDOB2": "Year of birth must be from 1900 to ",
     "updateDOB3": "Month of birth is not valid (1-12)",
     "updateDOB4": "Date of birth cannot be in the future"
+  },
+  "table": {
+    "empty": "Empty",
+    "serving": "Serving",
+    "management": "Table Management",
+    "capacity": "Capacity: ",
+    "checkIn": "Check In",
+    "checkOut": "Check Out",
+    "payment": "Payment",
+    "editOrder": "Edit Order",
+    "cancelReservation": "Cancel Reservation",
+    "reserve": "Reserve",
+    "enterCustomerCount": "Enter customer count"
   },
   "Uploading": "Uploading..."
 }

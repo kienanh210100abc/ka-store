@@ -10,12 +10,23 @@ export interface Table {
   id: string;
   name: string;
   capacity: number;
-  status: "EMPTY" | "SERVING" | "RESERVED";
+  status: "EMPTY" | "SERVING";
+}
+
+export interface Order {
+  id: string;
+  tableId: string;
+  customers?: number;
+  pricePerPerson?: number;
+  total?: number;
+  status: "OPEN" | "PAID" | "CANCELLED";
+  createdAt: number;
 }
 
 export interface RestaurantData {
   id: string;
   tables: Table[];
+  orders: Order[];
 }
 
 interface RestaurantState {
@@ -68,7 +79,22 @@ const restaurantSlice = createSlice({
       }
     },
 
-    // Categories actions
+    // Order actions
+    addOrder: (state, action: PayloadAction<Order>) => {
+      if (state.data) {
+        state.data.orders.push(action.payload);
+      }
+    },
+    updateOrder: (state, action: PayloadAction<Order>) => {
+      if (state.data) {
+        const index = state.data.orders.findIndex(
+          (o) => o.id === action.payload.id,
+        );
+        if (index !== -1) {
+          state.data.orders[index] = action.payload;
+        }
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -87,6 +113,7 @@ const restaurantSlice = createSlice({
   },
 });
 
-export const { addTable, updateTable, deleteTable } = restaurantSlice.actions;
+export const { addTable, updateTable, deleteTable, addOrder, updateOrder } =
+  restaurantSlice.actions;
 
 export default restaurantSlice.reducer;

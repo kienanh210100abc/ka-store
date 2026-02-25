@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { Box, Typography, IconButton, Menu, MenuItem } from "@mui/material";
+import { AccountCircle, ArrowDropDown } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { AccountCircle, ArrowDropDown } from "@mui/icons-material";
-import LanguageSwitcher from "../LanguageSwitcher";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { logout } from "../../store/authSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 function Navbar() {
   const { t } = useTranslation();
@@ -105,38 +105,6 @@ function Navbar() {
         >
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
-              "@media (min-width: 500px)": {
-                display: "flex",
-              },
-              alignItems: "center",
-              bgcolor: "rgba(255,255,255,0.1)",
-              p: "6px 10px",
-              borderRadius: "4px",
-              "& input::placeholder": {
-                color: "rgba(255, 255, 255, 0.7)",
-              },
-            }}
-          >
-            <input
-              type="text"
-              placeholder={t("navbar.search")}
-              style={{
-                background: "transparent",
-                border: "none",
-                outline: "none",
-                color: "white",
-                display: "block",
-              }}
-              onKeyPress={(e) => {
-                if (e.key !== "Enter") return;
-                const searchTerm = (e.target as HTMLInputElement).value.trim();
-                navigate(searchTerm ? `/?search=${searchTerm}` : "/");
-              }}
-            />
-          </Box>
-          <Box
-            sx={{
               display: "flex",
               alignItems: "center",
               gap: 1,
@@ -200,7 +168,6 @@ function Navbar() {
         </Box>
       </Box>
 
-      {/* Backdrop overlay */}
       <Box
         onClick={() => setOpen(false)}
         sx={{
@@ -220,7 +187,6 @@ function Navbar() {
         }}
       />
 
-      {/* Slide menu */}
       <Box
         sx={{
           position: "fixed",
@@ -239,7 +205,6 @@ function Navbar() {
           },
         }}
       >
-        {/* Menu Header */}
         <Box
           sx={{
             p: 3,

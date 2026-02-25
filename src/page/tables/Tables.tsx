@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchRestaurant } from "../../store/restaurantSlice";
@@ -18,17 +18,29 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import type { Table } from "../../store/restaurantSlice";
-
+import Detail from "./Detail";
 type Props = {};
 
 const Tables = (props: Props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.restaurant);
+  const [selectedTable, setSelectedTable] = useState<Table | null>(null);
+  const [openDetail, setOpenDetail] = useState(false);
 
   useEffect(() => {
     dispatch(fetchRestaurant());
   }, [dispatch]);
+
+  const handleTableClick = (table: Table) => {
+    setSelectedTable(table);
+    setOpenDetail(true);
+  };
+
+  const handleCloseDetail = () => {
+    setOpenDetail(false);
+    setSelectedTable(null);
+  };
 
   if (loading) {
     return (
@@ -57,25 +69,19 @@ const Tables = (props: Props) => {
     switch (status) {
       case "EMPTY":
         return {
-          label: "Trống",
+          label: t("table.empty"),
           color: "#4caf50",
           bgColor: "#e8f5e9",
           icon: <CheckCircle sx={{ color: "#4caf50" }} />,
         };
       case "SERVING":
         return {
-          label: "Đang phục vụ",
+          label: t("table.serving"),
           color: "#f44336",
           bgColor: "#ffebee",
           icon: <People sx={{ color: "#f44336" }} />,
         };
-      case "RESERVED":
-        return {
-          label: "Đã đặt",
-          color: "#ff9800",
-          bgColor: "#fff3e0",
-          icon: <EventSeat sx={{ color: "#ff9800" }} />,
-        };
+
       default:
         return {
           label: status,
@@ -100,13 +106,13 @@ const Tables = (props: Props) => {
         }}
       >
         <TableRestaurant sx={{ fontSize: 32 }} />
-        Quản lý bàn
+        {t("table.management")}
       </Typography>
 
       <Box sx={{ mb: 3, display: "flex", gap: 2, flexWrap: "wrap" }}>
         <Chip
           icon={<CheckCircle />}
-          label={`Trống: ${data?.tables?.filter((t) => t.status === "EMPTY").length || 0}`}
+          label={`${t("table.empty")}: ${data?.tables?.filter((t) => t.status === "EMPTY").length || 0}`}
           sx={{
             bgcolor: "#e8f5e9",
             color: "#4caf50",
@@ -115,19 +121,10 @@ const Tables = (props: Props) => {
         />
         <Chip
           icon={<People />}
-          label={`Đang phục vụ: ${data?.tables?.filter((t) => t.status === "SERVING").length || 0}`}
+          label={`${t("table.serving")}: ${data?.tables?.filter((t) => t.status === "SERVING").length || 0}`}
           sx={{
             bgcolor: "#ffebee",
             color: "#f44336",
-            fontWeight: 600,
-          }}
-        />
-        <Chip
-          icon={<EventSeat />}
-          label={`Đã đặt: ${data?.tables?.filter((t) => t.status === "RESERVED").length || 0}`}
-          sx={{
-            bgcolor: "#fff3e0",
-            color: "#ff9800",
             fontWeight: 600,
           }}
         />
@@ -139,6 +136,7 @@ const Tables = (props: Props) => {
           return (
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={table.id}>
               <Card
+                onClick={() => handleTableClick(table)}
                 sx={{
                   height: "100%",
                   cursor: "pointer",
@@ -182,7 +180,7 @@ const Tables = (props: Props) => {
                   >
                     <People sx={{ fontSize: 20, color: "#666" }} />
                     <Typography sx={{ color: "#666" }}>
-                      Sức chứa: <strong>{table.capacity}</strong> người
+                      {t("table.capacity")} <strong>{table.capacity}</strong>
                     </Typography>
                   </Box>
 
@@ -203,6 +201,12 @@ const Tables = (props: Props) => {
           );
         })}
       </Grid>
+
+      <Detail
+        open={openDetail}
+        onClose={handleCloseDetail}
+        table={selectedTable}
+      />
     </Box>
   );
 };

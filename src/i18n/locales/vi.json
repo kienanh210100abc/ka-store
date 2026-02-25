@@ -53,7 +53,9 @@
     "cancel": "Huỷ",
     "edit": "Chỉnh Sửa",
     "delete": "Xoá",
-    "add": "Thêm"
+    "add": "Thêm",
+    "close": "Đóng",
+    "confirm": "Xác Nhận"
   },
   "profile": {
     "title": "Thông tin Cá Nhân",
@@ -99,6 +101,19 @@
     "updateDOB2": "Năm sinh phải từ 1900 đến ",
     "updateDOB3": "Tháng sinh không hợp lệ (1-12)",
     "updateDOB4": "Ngày sinh không thể ở tương lai"
+  },
+  "table": {
+    "empty": "Trống",
+    "serving": "Đang phục vụ",
+    "management": "Quản lý bàn",
+    "capacity": "Chỗ ngồi: ",
+    "checkIn": "Khách vào bàn",
+    "checkOut": "Khách ra bàn",
+    "payment": "Thanh toán",
+    "editOrder": "Chỉnh sửa order",
+    "cancelReservation": "Hủy đặt bàn",
+    "reserve": "Đặt bàn",
+    "enterCustomerCount": "Nhập số lượng khách"
   },
   "Uploading": "Đang tải lên..."
 }

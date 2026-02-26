@@ -65,7 +65,7 @@ const Staff = (props: Props) => {
         }}
       >
         <People sx={{ fontSize: 32 }} />
-        Quản lý nhân viên ({data?.length || 0})
+        {t("staff.title")} ({data?.length || 0})
       </Typography>
 
       <Grid container spacing={3}>

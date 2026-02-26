@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./component/Layout/Layout";
 import Login from "./page/login/Login";
-import Homepage from "./page/homepage/Homepage";
 import Profile from "./page/profile/Profile";
 import ChangePassword from "./page/profile/ChangePassword";
 import { ToastContainer } from "react-toastify";
@@ -16,9 +15,8 @@ function App() {
     <>
       <ToastContainer position="bottom-right" autoClose={3000} />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/tables" element={<Tables />} />

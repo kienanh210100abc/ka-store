@@ -61,7 +61,9 @@ const Login = () => {
         );
 
         // Navigate to homepage
-        navigate("/");
+        if (response.user.role === "ADMIN") {
+          navigate("/dashboard");
+        } else navigate("/tables");
       } else {
         // Register
         await authService.register({

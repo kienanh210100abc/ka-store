@@ -1,6 +1,13 @@
-import { AccountCircle, ArrowDropDown } from "@mui/icons-material";
+import { AccountCircle, ArrowDropDown, ExpandMore } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import {
+  Box,
+  Collapse,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -15,18 +22,31 @@ function Navbar() {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>(
+    {},
+  );
   const openMenu = Boolean(anchorEl);
 
   const menuItems = [
     ...(user?.role === "ADMIN"
-      ? [{ label: "navbar.dashboard", path: "/dashboard" }]
+      ? [{ label: "sidebar.dashboard", path: "/dashboard" }]
       : []),
-
-    { label: "navbar.tableManagement", path: "/tables" },
-    { label: "navbar.orders", path: "/orders" },
-    { label: "navbar.dishes", path: "/dishes" },
-    { label: "navbar.categories", path: "/categories" },
-    { label: "navbar.settings", path: "/settings" },
+    { label: "sidebar.tableManagement", path: "/tables" },
+    ...(user?.role === "ADMIN"
+      ? [
+          {
+            label: "sidebar.staff",
+            path: "/staff",
+            dropdown: "menu",
+            subItems: [
+              { label: "Quản lý ", path: "/staff" },
+              { label: "Nhân viên", path: "/staff" },
+            ],
+          },
+        ]
+      : []),
+    { label: "sidebar.settings", path: "/settings" },
+    { label: "sidebar.account", path: "/profile" },
   ];
 
   const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,7 +60,7 @@ function Navbar() {
   const handleLogout = () => {
     dispatch(logout());
     setAnchorEl(null);
-    // navigate("/");
+    navigate("/");
   };
 
   const handleNavigate = (path: string) => {
@@ -239,34 +259,85 @@ function Navbar() {
         {/* Menu Items */}
         <Box sx={{ pt: 2 }}>
           {menuItems.map((item, index) => (
-            <Box
-              key={item.path}
-              sx={{
-                px: 3,
-                py: 2.5,
-                color: "white",
-                cursor: "pointer",
-                borderLeft: "4px solid transparent",
-                transition: "all 0.2s ease",
-                animation: open
-                  ? `slideIn 0.3s ease forwards ${index * 0.05}s`
-                  : "none",
-                opacity: 0,
-                "@keyframes slideIn": {
-                  from: { opacity: 0, transform: "translateX(-20px)" },
-                  to: { opacity: 1, transform: "translateX(0)" },
-                },
-                "&:hover": {
-                  bgcolor: "rgba(255,255,255,0.1)",
-                  borderLeftColor: "white",
-                  pl: 4,
-                },
-              }}
-              onClick={() => handleNavigate(item.path)}
-            >
-              <Typography sx={{ fontSize: 16, fontWeight: 500 }}>
-                {t(item.label)}
-              </Typography>
+            <Box key={item.path || item.label}>
+              <Box
+                sx={{
+                  px: 3,
+                  py: 2.5,
+                  color: "white",
+                  cursor: "pointer",
+                  borderLeft: "4px solid transparent",
+                  transition: "all 0.2s ease",
+                  animation: open
+                    ? `slideIn 0.3s ease forwards ${index * 0.05}s`
+                    : "none",
+                  opacity: 0,
+                  "@keyframes slideIn": {
+                    from: { opacity: 0, transform: "translateX(-20px)" },
+                    to: { opacity: 1, transform: "translateX(0)" },
+                  },
+                  "&:hover": {
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    borderLeftColor: "white",
+                    pl: 4,
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+                onClick={() =>
+                  item.dropdown
+                    ? setOpenDropdowns((prev) => ({
+                        ...prev,
+                        [item.dropdown]: !prev[item.dropdown],
+                      }))
+                    : handleNavigate(item.path)
+                }
+              >
+                <Typography sx={{ fontSize: 16, fontWeight: 500 }}>
+                  {t(item.label)}
+                </Typography>
+                {item.dropdown && (
+                  <ExpandMore
+                    sx={{
+                      transform: openDropdowns[item.dropdown]
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                      transition: "transform 0.3s",
+                    }}
+                  />
+                )}
+              </Box>
+
+              {item.dropdown && item.subItems && (
+                <Collapse in={openDropdowns[item.dropdown]} timeout={300}>
+                  <Box>
+                    {item.subItems.map((sub) => (
+                      <Box
+                        key={sub.path}
+                        onClick={() => handleNavigate(sub.path)}
+                        sx={{
+                          px: 3,
+                          py: 2,
+                          pl: 5,
+                          color: "white",
+                          cursor: "pointer",
+                          fontSize: 14,
+                          transition: "all 0.2s ease",
+                          "&:hover": {
+                            bgcolor: "rgba(255,255,255,0.08)",
+                            pl: 6,
+                          },
+                        }}
+                      >
+                        <Typography sx={{ fontSize: 15 }}>
+                          {sub.label}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                </Collapse>
+              )}
             </Box>
           ))}
         </Box>

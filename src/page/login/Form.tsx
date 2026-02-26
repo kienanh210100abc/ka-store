@@ -86,7 +86,7 @@ export const FormContent = ({
         <TextField
           fullWidth
           required
-          placeholder={t("login.email")}
+          placeholder={t("admin@gmail.com")}
           name="email"
           type="email"
           value={formData.email}
@@ -97,7 +97,7 @@ export const FormContent = ({
         <TextField
           fullWidth
           required
-          placeholder={t("login.password")}
+          placeholder={t("admin123")}
           name="password"
           type="password"
           value={formData.password}

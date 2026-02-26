@@ -51,32 +51,24 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
       icon: <TableRestaurant />,
       path: "/tables",
     },
-    {
-      text: t("sidebar.orders"),
-      icon: <ShoppingCart />,
-      path: "/orders",
-    },
-    {
-      text: t("sidebar.menu"),
-      icon: <Restaurant />,
-      dropdown: "menu",
-      subItems: [
-        {
-          text: t("sidebar.dishes"),
-          path: "/dishes",
-        },
-        {
-          text: t("sidebar.categories"),
-          path: "/categories",
-        },
-      ],
-    },
+
     ...(user?.role === "ADMIN"
       ? [
           {
             text: t("sidebar.staff"),
             icon: <People />,
-            path: "/staff",
+            // path: "/staff",
+            dropdown: "menu",
+            subItems: [
+              {
+                text: "Quản lý ",
+                path: "/staff",
+              },
+              {
+                text: "Nhân viên",
+                path: "/staff",
+              },
+            ],
           },
         ]
       : []),

@@ -8,6 +8,7 @@ export interface Profile {
   dob?: number;
   phoneNumber?: string;
   avatar?: string; // Base64 string of avatar image
+  role?: string;
 }
 
 const BASE_URL = "https://693a6dea9b80ba7262c9e0fe.mockapi.io";

@@ -37,11 +37,6 @@ function Navbar() {
           {
             label: "sidebar.staff",
             path: "/staff",
-            dropdown: "menu",
-            subItems: [
-              { label: "Quản lý ", path: "/staff" },
-              { label: "Nhân viên", path: "/staff" },
-            ],
           },
         ]
       : []),
@@ -285,59 +280,11 @@ function Navbar() {
                   alignItems: "center",
                   justifyContent: "space-between",
                 }}
-                onClick={() =>
-                  item.dropdown
-                    ? setOpenDropdowns((prev) => ({
-                        ...prev,
-                        [item.dropdown]: !prev[item.dropdown],
-                      }))
-                    : handleNavigate(item.path)
-                }
               >
                 <Typography sx={{ fontSize: 16, fontWeight: 500 }}>
                   {t(item.label)}
                 </Typography>
-                {item.dropdown && (
-                  <ExpandMore
-                    sx={{
-                      transform: openDropdowns[item.dropdown]
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                      transition: "transform 0.3s",
-                    }}
-                  />
-                )}
               </Box>
-
-              {item.dropdown && item.subItems && (
-                <Collapse in={openDropdowns[item.dropdown]} timeout={300}>
-                  <Box>
-                    {item.subItems.map((sub) => (
-                      <Box
-                        key={sub.path}
-                        onClick={() => handleNavigate(sub.path)}
-                        sx={{
-                          px: 3,
-                          py: 2,
-                          pl: 5,
-                          color: "white",
-                          cursor: "pointer",
-                          fontSize: 14,
-                          transition: "all 0.2s ease",
-                          "&:hover": {
-                            bgcolor: "rgba(255,255,255,0.08)",
-                            pl: 6,
-                          },
-                        }}
-                      >
-                        <Typography sx={{ fontSize: 15 }}>
-                          {sub.label}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
-                </Collapse>
-              )}
             </Box>
           ))}
         </Box>

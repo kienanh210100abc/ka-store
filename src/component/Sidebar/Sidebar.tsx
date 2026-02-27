@@ -57,18 +57,7 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
           {
             text: t("sidebar.staff"),
             icon: <People />,
-            // path: "/staff",
-            dropdown: "menu",
-            subItems: [
-              {
-                text: "Quản lý ",
-                path: "/staff",
-              },
-              {
-                text: "Nhân viên",
-                path: "/staff",
-              },
-            ],
+            path: "/staff",
           },
         ]
       : []),
@@ -104,7 +93,6 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
         overflowY: "auto",
         overflowX: "hidden",
         zIndex: 999,
-        // display: { xs: "none", md: "block" },
         "@media (max-width: 850px)": { display: "none" },
         boxShadow: "2px 0 10px rgba(0,0,0,0.3)",
         transition: "width 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -175,14 +163,7 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
           >
             <Tooltip title={!isExpanded ? item.text : ""} placement="right">
               <Box
-                onClick={() =>
-                  item.dropdown
-                    ? setOpenDropdowns((prev) => ({
-                        ...prev,
-                        [item.dropdown]: !prev[item.dropdown],
-                      }))
-                    : item.path && handleNavigate(item.path)
-                }
+                onClick={() => item.path && handleNavigate(item.path)}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -227,59 +208,8 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
                     {item.text}
                   </Box>
                 </Box>
-                {item.dropdown && (
-                  <ExpandMore
-                    sx={{
-                      transform: openDropdowns[item.dropdown]
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                      transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                      opacity: isExpanded ? 1 : 0,
-                    }}
-                  />
-                )}
               </Box>
             </Tooltip>
-
-            {item.dropdown && isExpanded && (
-              <Collapse in={openDropdowns[item.dropdown]} timeout={500}>
-                <Box>
-                  {item.subItems?.map((sub) => (
-                    <Box
-                      key={sub.path}
-                      onClick={() => handleNavigate(sub.path)}
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        height: 48,
-                        p: "0 16px 0 40px",
-                        color: "white",
-                        cursor: "pointer",
-                        fontSize: 14,
-                        "&:hover": {
-                          opacity: 1,
-                          background: "rgba(255,255,255,0.05)",
-                          pl: "44px",
-                          transform: "translateX(2px)",
-                        },
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          "&:hover": { transform: "scale(1.1)" },
-                        }}
-                      >
-                        {/* {sub.icon} */}
-                      </Box>
-                      <Box sx={{ color: "white" }}>{sub.text}</Box>
-                    </Box>
-                  ))}
-                </Box>
-              </Collapse>
-            )}
           </Box>
         ))}
       </Box>

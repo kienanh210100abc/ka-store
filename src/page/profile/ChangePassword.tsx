@@ -15,8 +15,6 @@ import { useAppSelector } from "../../store/hooks";
 import { profileService } from "../../services/profileService";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
-type Props = {};
-
 interface FormData {
   oldPassword: string;
   newPassword: string;
@@ -29,7 +27,7 @@ interface ValidationErrors {
   confirmPassword?: string;
 }
 
-const ChangePassword = (props: Props) => {
+const ChangePassword = () => {
   const { t } = useTranslation();
   const { user } = useAppSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);

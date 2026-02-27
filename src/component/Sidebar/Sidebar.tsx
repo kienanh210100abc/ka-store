@@ -1,38 +1,23 @@
-import { useState, useEffect } from "react";
-import { Box, Tooltip, Typography, Collapse } from "@mui/material";
 import {
+  AccountCircle,
   ChevronLeft,
-  ExpandMore,
   Dashboard,
-  TableRestaurant,
-  ShoppingCart,
-  Restaurant,
   People,
   Settings,
-  AccountCircle,
+  TableRestaurant,
 } from "@mui/icons-material";
+import { Box, Tooltip, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
-
-const ImgIcon = ({
-  src,
-  alt,
-  size = 30,
-}: {
-  src: string;
-  alt: string;
-  size?: number;
-}) => <img src={src} alt={alt} style={{ width: size, height: size }} />;
 
 const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(true);
-  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>(
-    {},
-  );
-  const { user, isAuthenticated } = useAppSelector((state) => state.auth);
+
+  const { user } = useAppSelector((state) => state.auth);
 
   useEffect(() => onToggle?.(isExpanded), [isExpanded, onToggle]);
 

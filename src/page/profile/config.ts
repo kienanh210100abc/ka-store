@@ -137,7 +137,7 @@ export const validatePhoneNumber = (
  */
 export const validateAddress = (
   address: string,
-  t: (key: string) => string,
+  // t: (key: string) => string,
 ): string | undefined => {
   const trimmedAddress = address.trim();
 
@@ -264,7 +264,7 @@ export const validateProfileForm = (
   const phoneError = validatePhoneNumber(formData.phoneNumber, t);
   if (phoneError) errors.phoneNumber = phoneError;
 
-  const addressError = validateAddress(formData.address, t);
+  const addressError = validateAddress(formData.address);
   if (addressError) errors.address = addressError;
 
   const companyError = validateCompany(formData.company, t);

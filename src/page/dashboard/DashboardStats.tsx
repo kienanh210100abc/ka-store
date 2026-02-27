@@ -1,9 +1,8 @@
-import { Grid } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
+import { Grid } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import StatCard from "./StatCard";
 import type { DashboardStats as StatsType } from "./types";
 import { formatCurrency } from "./utils";

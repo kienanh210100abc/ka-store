@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { fetchRestaurant } from "../../store/restaurantSlice";
+import { CheckCircle, People, TableRestaurant } from "@mui/icons-material";
 import {
   Box,
-  CircularProgress,
-  Typography,
-  Grid,
   Card,
   CardContent,
   Chip,
+  CircularProgress,
+  Grid,
+  Typography,
 } from "@mui/material";
-import {
-  TableRestaurant,
-  People,
-  EventSeat,
-  CheckCircle,
-} from "@mui/icons-material";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import type { Table } from "../../store/restaurantSlice";
+import { fetchRestaurant } from "../../store/restaurantSlice";
 import Detail from "./Detail";
-type Props = {};
 
-const Tables = (props: Props) => {
+const Tables = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.restaurant);

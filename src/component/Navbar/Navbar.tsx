@@ -1,13 +1,6 @@
-import { AccountCircle, ArrowDropDown, ExpandMore } from "@mui/icons-material";
+import { AccountCircle, ArrowDropDown } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  Box,
-  Collapse,
-  IconButton,
-  Menu,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -22,9 +15,7 @@ function Navbar() {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>(
-    {},
-  );
+
   const openMenu = Boolean(anchorEl);
 
   const menuItems = [
@@ -280,6 +271,7 @@ function Navbar() {
                   alignItems: "center",
                   justifyContent: "space-between",
                 }}
+                onClick={() => handleNavigate(item.path)}
               >
                 <Typography sx={{ fontSize: 16, fontWeight: 500 }}>
                   {t(item.label)}

@@ -68,7 +68,8 @@
     "dob": "Date of Birth",
     "errorUserNotFound": "User information not found.",
     "errorLoadingProfile": "Unable to load profile information.",
-    "changeAvatar": "Change Avatar"
+    "changeAvatar": "Change Avatar",
+    "searchStaff": "Search Staff"
   },
   "changePassword": {
     "oldPassword": "Old Password",
@@ -148,6 +149,11 @@
     "loading": "Loading...",
     "weeklyRevenueChart": "Weekly Revenue Chart",
     "dailyRevenue": "Daily Revenue"
+  },
+  "staff": {
+    "title": "Staff",
+    "admin": "Admin",
+    "employee": "Employee"
   },
   "Uploading": "Uploading..."
 }

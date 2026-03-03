@@ -55,7 +55,8 @@
     "delete": "Xoá",
     "add": "Thêm",
     "close": "Đóng",
-    "confirm": "Xác Nhận"
+    "confirm": "Xác Nhận",
+    "saveChanges": "Lưu Thay Đổi"
   },
   "profile": {
     "title": "Thông tin Cá Nhân",
@@ -68,7 +69,8 @@
     "dob": "Ngày Sinh",
     "errorUserNotFound": "Không tìm thấy thông tin người dùng.",
     "errorLoadingProfile": "Không thể tải thông tin profile.",
-    "changeAvatar": "Thay Đổi Ảnh Đại Diện"
+    "changeAvatar": "Thay Đổi Ảnh Đại Diện",
+    "searchStaff": "Tìm kiếm nhân viên..."
   },
   "changePassword": {
     "oldPassword": "Mật Khẩu Cũ",
@@ -154,7 +156,9 @@
     "dailyRevenue": "Doanh thu ngày"
   },
   "staff": {
-    "title": "Nhân Viên"
+    "title": "Nhân Viên",
+    "admin": "Quản lý",
+    "employee": "Nhân viên"
   },
   "Uploading": "Đang tải lên..."
 }

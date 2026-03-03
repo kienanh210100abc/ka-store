@@ -30,6 +30,7 @@ import { useState } from "react";
 import { profileService } from "../../services/profileService";
 import { useAppDispatch } from "../../store/hooks";
 import { fetchAllStaff } from "../../store/staffSlice";
+import { t } from "i18next";
 
 type Props = {
   open: boolean;
@@ -137,7 +138,9 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
               {currentStaff?.name}
             </Typography>
             <Chip
-              label={staff.role === "ADMIN" ? "Quản lý" : "Nhân viên"}
+              label={
+                staff.role === "ADMIN" ? t("staff.admin") : t("staff.employee")
+              }
               size="small"
               icon={<Person sx={{ color: "white" }} />}
               sx={{
@@ -161,7 +164,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Person sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Họ tên
+                {t("profile.name")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -181,7 +184,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Email sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Email
+                {t("profile.email")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -202,7 +205,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Phone sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Số điện thoại
+                {t("profile.phone")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -226,7 +229,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Business sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Công ty
+                {t("profile.company")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -248,7 +251,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <LocationOn sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Địa chỉ
+                {t("profile.address")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -272,7 +275,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Cake sx={{ fontSize: 20, color: roleColor }} />
               <Typography variant="subtitle2" fontWeight={600} color="#666">
-                Ngày sinh
+                {t("profile.dob")}
               </Typography>
             </Box>
             {isEditing ? (
@@ -310,7 +313,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
               startIcon={<Cancel />}
               disabled={loading}
             >
-              Hủy
+              {t("button.cancel")}
             </Button>
             <Button
               onClick={handleSave}
@@ -322,7 +325,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
                 "&:hover": { bgcolor: roleColor, opacity: 0.9 },
               }}
             >
-              Lưu thay đổi
+              {t("saveChanges")}
             </Button>
           </>
         ) : (
@@ -333,7 +336,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
               sx={{ color: "#666" }}
               disabled={loading}
             >
-              Đóng
+              {t("button.close")}
             </Button>
             <Button
               onClick={handleDelete}
@@ -342,7 +345,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
               startIcon={<Delete />}
               disabled={loading}
             >
-              Xóa
+              {t("button.delete")}
             </Button>
             <Button
               onClick={handleEdit}
@@ -353,7 +356,7 @@ const StaffDetail = ({ open, onClose, staff }: Props) => {
                 "&:hover": { bgcolor: roleColor, opacity: 0.9 },
               }}
             >
-              Sửa
+              {t("button.edit")}
             </Button>
           </>
         )}

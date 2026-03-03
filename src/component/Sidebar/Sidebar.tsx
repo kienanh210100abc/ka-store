@@ -46,11 +46,7 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
           },
         ]
       : []),
-    {
-      text: t("sidebar.settings"),
-      icon: <Settings />,
-      path: "/settings",
-    },
+
     {
       text: t("sidebar.account"),
       icon: <AccountCircle />,
@@ -69,7 +65,8 @@ const Sidebar = ({ onToggle }: { onToggle?: (expanded: boolean) => void }) => {
     <Box
       sx={{
         width: isExpanded ? 280 : 70,
-        height: "calc(100vh - 100px)",
+        // height: "calc(100vh - 100px)",
+        height: "100%",
         bgcolor: "black",
         background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         position: "fixed",

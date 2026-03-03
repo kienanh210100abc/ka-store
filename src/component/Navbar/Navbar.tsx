@@ -31,7 +31,6 @@ function Navbar() {
           },
         ]
       : []),
-    { label: "sidebar.settings", path: "/settings" },
     { label: "sidebar.account", path: "/profile" },
   ];
 

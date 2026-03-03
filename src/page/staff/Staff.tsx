@@ -143,7 +143,7 @@ const Staff = () => {
         </Typography>
 
         <TextField
-          placeholder="Tìm kiếm nhân viên..."
+          placeholder={t("profile.searchStaff")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           size="small"
@@ -206,7 +206,11 @@ const Staff = () => {
                   </Typography>
                   {staff.role && (
                     <Chip
-                      label={staff.role === "ADMIN" ? "Quản lý" : "Nhân viên"}
+                      label={
+                        staff.role === "ADMIN"
+                          ? t("staff.admin")
+                          : t("staff.employee")
+                      }
                       size="small"
                       sx={{
                         mt: 1,

@@ -185,62 +185,107 @@ export default function DashboardChart() {
           sx={{
             width: "100%",
             mt: { xs: 1, sm: 1.5, md: 2 },
-            overflowX: isMobile || isTablet ? "auto" : "visible",
-            overflowY: "hidden",
-            WebkitOverflowScrolling: "touch",
-            "&::-webkit-scrollbar": {
-              height: { xs: "6px", sm: "8px" },
-            },
-            "&::-webkit-scrollbar-track": {
-              backgroundColor: "#f1f1f1",
-              borderRadius: "4px",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#888",
-              borderRadius: "4px",
-              "&:hover": {
-                backgroundColor: "#555",
-              },
-            },
+            position: "relative",
           }}
         >
+          {/* Scroll indicator for mobile */}
+          {/* {(isMobile || isTablet) && (
+            <Box
+              sx={{
+                position: "absolute",
+                right: 0,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 1,
+                background:
+                  "linear-gradient(to left, rgba(255,255,255,0.95), transparent)",
+                px: 2,
+                py: 10,
+                pointerEvents: "none",
+              }}
+            >
+              <Typography
+                variant="caption"
+                sx={{
+                  color: "#667eea",
+                  fontWeight: 600,
+                  fontSize: "0.7rem",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                }}
+              >
+                ← Vuốt →
+              </Typography>
+            </Box>
+          )} */}
+
           <Box
             sx={{
-              minWidth: isMobile ? "900px" : isTablet ? "800px" : "100%",
+              width: "100%",
+              overflowX: isMobile || isTablet ? "auto" : "visible",
+              overflowY: "hidden",
+              WebkitOverflowScrolling: "touch",
+              pb: { xs: 2, sm: 1.5 },
+              "&::-webkit-scrollbar": {
+                height: { xs: "10px", sm: "8px" },
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "#e5e7eb",
+                borderRadius: "6px",
+                border: "1px solid #d1d5db",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#667eea",
+                borderRadius: "6px",
+                border: "2px solid #e5e7eb",
+                "&:hover": {
+                  backgroundColor: "#5568d3",
+                },
+                "&:active": {
+                  backgroundColor: "#4c51bf",
+                },
+              },
             }}
           >
-            <BarChart
-              dataset={chartData}
-              xAxis={[
-                {
-                  scaleType: "band",
-                  dataKey: "day",
-                  tickPlacement: "middle",
-                  tickLabelPlacement: "middle",
-                },
-              ]}
-              yAxis={[
-                {
-                  label: t("dashboard.revenue") || "Doanh thu ($)",
-                  valueFormatter,
-                },
-              ]}
-              series={[
-                {
-                  dataKey: "revenue",
-                  label: t("dashboard.dailyRevenue") || "Doanh thu ngày",
-                  valueFormatter,
-                  color: "#3b82f6",
-                },
-              ]}
-              height={350}
-              margin={{
-                left: 80,
-                right: 10,
-                top: 20,
-                bottom: 40,
+            <Box
+              sx={{
+                minWidth: isMobile ? "900px" : isTablet ? "800px" : "100%",
+                pr: { xs: 3, sm: 2 },
               }}
-            />
+            >
+              <BarChart
+                dataset={chartData}
+                xAxis={[
+                  {
+                    scaleType: "band",
+                    dataKey: "day",
+                    tickPlacement: "middle",
+                    tickLabelPlacement: "middle",
+                  },
+                ]}
+                yAxis={[
+                  {
+                    label: t("dashboard.revenue") || "Doanh thu ($)",
+                    valueFormatter,
+                  },
+                ]}
+                series={[
+                  {
+                    dataKey: "revenue",
+                    label: t("dashboard.dailyRevenue") || "Doanh thu ngày",
+                    valueFormatter,
+                    color: "#3b82f6",
+                  },
+                ]}
+                height={350}
+                margin={{
+                  left: 80,
+                  right: 10,
+                  top: 20,
+                  bottom: 40,
+                }}
+              />
+            </Box>
           </Box>
         </Box>
 

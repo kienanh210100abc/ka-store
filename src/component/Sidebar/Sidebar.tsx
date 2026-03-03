@@ -3,7 +3,6 @@ import {
   ChevronLeft,
   Dashboard,
   People,
-  Settings,
   TableRestaurant,
 } from "@mui/icons-material";
 import { Box, Tooltip, Typography } from "@mui/material";

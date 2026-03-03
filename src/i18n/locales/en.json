@@ -15,7 +15,9 @@
     "loginError": "Login failed. Please check your credentials.",
     "registerError": "Registration failed. Please try again.",
     "title": "Login",
-    "requiredFields": "Please fill in all required fields."
+    "requiredFields": "Please fill in all required fields.",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?"
   },
   "navbar": {
     "search": "Search ...",

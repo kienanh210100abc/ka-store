@@ -101,6 +101,7 @@ const Login = () => {
     <Box
       sx={{
         minHeight: "100vh",
+        backgroundColor: "black",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -112,13 +113,16 @@ const Login = () => {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-          maxWidth: "900px",
+          maxWidth: { xs: "400px", md: "900px" },
           width: "100%",
+          margin: { xs: "20px", md: "0" },
           boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
-          overflow: "hidden",
+          overflow: { xs: "visible", md: "hidden" },
           borderRadius: "10px",
           background: "white",
           position: "relative",
+          height: { xs: "auto", md: "500px" },
+          minHeight: { xs: "auto", md: "500px" },
         }}
       >
         <Box
@@ -182,15 +186,16 @@ const Login = () => {
         {/* login (thẻ bên trái) */}
         <Box
           sx={{
-            display: "flex",
+            display: { xs: isSignIn ? "flex" : "none", md: "flex" },
             flexDirection: "column",
             justifyContent: "center",
             padding: { xs: "30px", md: "40px" },
             gridColumn: { xs: "1", md: "1" },
-            opacity: isSignIn ? 1 : 0,
-            visibility: isSignIn ? "visible" : "hidden",
-            pointerEvents: isSignIn ? "auto" : "none",
+            opacity: { xs: 1, md: isSignIn ? 1 : 0 },
+            visibility: { xs: "visible", md: isSignIn ? "visible" : "hidden" },
+            pointerEvents: { xs: "auto", md: isSignIn ? "auto" : "none" },
             transition: "opacity 0.4s ease 0.4s, visibility 0s linear 0.4s",
+            minHeight: { xs: "auto", md: "500px" },
           }}
         >
           {error && (
@@ -206,19 +211,52 @@ const Login = () => {
             handleSubmit={handleSubmit}
             loading={loading}
           />
+
+          {/* Mobile toggle button */}
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 3,
+              gap: 1,
+            }}
+          >
+            <Typography variant="body2" color="text.secondary">
+              {t("login.noAccount")}
+            </Typography>
+            <Typography
+              variant="body2"
+              onClick={() => {
+                setError("");
+                setIsSignIn(false);
+              }}
+              sx={{
+                color: "#667eea",
+                fontWeight: 600,
+                cursor: "pointer",
+                "&:hover": {
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              {t("login.signUp")}
+            </Typography>
+          </Box>
         </Box>
 
         <Box
           sx={{
-            display: "flex",
+            display: { xs: !isSignIn ? "flex" : "none", md: "flex" },
             flexDirection: "column",
             justifyContent: "center",
             padding: { xs: "30px", md: "40px" },
             gridColumn: { xs: "1", md: "2" },
-            opacity: !isSignIn ? 1 : 0,
-            visibility: !isSignIn ? "visible" : "hidden",
-            pointerEvents: !isSignIn ? "auto" : "none",
+            opacity: { xs: 1, md: !isSignIn ? 1 : 0 },
+            visibility: { xs: "visible", md: !isSignIn ? "visible" : "hidden" },
+            pointerEvents: { xs: "auto", md: !isSignIn ? "auto" : "none" },
             transition: "opacity 0.4s ease 0.4s, visibility 0s linear 0.4s",
+            minHeight: { xs: "auto", md: "500px" },
           }}
         >
           {error && (
@@ -234,6 +272,38 @@ const Login = () => {
             handleSubmit={handleSubmit}
             loading={loading}
           />
+
+          {/* Mobile toggle button */}
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 3,
+              gap: 1,
+            }}
+          >
+            <Typography variant="body2" color="text.secondary">
+              {t("login.hasAccount")}
+            </Typography>
+            <Typography
+              variant="body2"
+              onClick={() => {
+                setError("");
+                setIsSignIn(true);
+              }}
+              sx={{
+                color: "#667eea",
+                fontWeight: 600,
+                cursor: "pointer",
+                "&:hover": {
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              {t("login.signIn")}
+            </Typography>
+          </Box>
         </Box>
       </Card>
     </Box>

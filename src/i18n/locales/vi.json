@@ -15,7 +15,9 @@
     "loginError": "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin.",
     "registerError": "Đăng ký thất bại. Vui lòng thử lại.",
     "title": "Đăng Nhập",
-    "requiredFields": "Vui lòng điền đầy đủ thông tin."
+    "requiredFields": "Vui lòng điền đầy đủ thông tin.",
+    "noAccount": "Chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?"
   },
   "navbar": {
     "search": "Tìm kiếm sản phẩm...",
